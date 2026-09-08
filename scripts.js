@@ -1,7 +1,8 @@
-const cantidades = [6, 8, 9];
-
 const botonGenerar = document.getElementById("generar-paleta");
 const contenedorPaleta = document.getElementById("paleta");
+
+const opcionesPaleta = document.getElementById("opciones-paleta");
+const opciones = document.querySelectorAll(".opcion");
 
 
 function generarColor() {
@@ -20,48 +21,56 @@ function generarColor() {
 }
 
 
+function hexARgb(hex) {
+
+    const r = parseInt(hex.substring(1, 3), 16);
+    const g = parseInt(hex.substring(3, 5), 16);
+    const b = parseInt(hex.substring(5, 7), 16);
+
+    return `rgb(${r}, ${g}, ${b})`;
+}
+
+
 botonGenerar.addEventListener("click", function () {
 
-    contenedorPaleta.innerHTML = "";
-
-    const indiceAleatorio = Math.floor(Math.random() * cantidades.length);
-
-    const cantidadColores = cantidades[indiceAleatorio];
-
-    console.log("Cantidad de colores:", cantidadColores);
-
-    for (let i = 0; i < cantidadColores; i++) {
-
-        const color = generarColor();
-
-        const bloqueColor = document.createElement("div");
-        bloqueColor.style.backgroundColor = color;
-        bloqueColor.style.width = "80px";
-bloqueColor.style.height = "150px";
-contenedorPaleta.appendChild(bloqueColor);
-    }
+    opcionesPaleta.classList.toggle("mostrar");
 
 });
 
-for (let i = 0; i < cantidadColores; i++) {
 
-    const color = generarColor();
-    const colorRgb = hexARgb(color);
+opciones.forEach(function (opcion) {
 
-    const bloqueColor = document.createElement("div");
+    opcion.addEventListener("click", function () {
 
-    bloqueColor.style.backgroundColor = color;
-    bloqueColor.style.width = "120px";
-    bloqueColor.style.height = "180px";
+        const cantidadColores = Number(opcion.dataset.cantidad);
 
-    const codigoColor = document.createElement("p");
+        contenedorPaleta.innerHTML = "";
 
-    codigoColor.innerHTML = `
-        HEX: ${color}<br>
-        RGB: ${colorRgb}
-    `;
+        for (let i = 0; i < cantidadColores; i++) {
 
-    bloqueColor.appendChild(codigoColor);
+            const color = generarColor();
+            const colorRgb = hexARgb(color);
 
-    contenedorPaleta.appendChild(bloqueColor);
-}
+            const bloqueColor = document.createElement("div");
+
+            bloqueColor.style.backgroundColor = color;
+            bloqueColor.style.width = "120px";
+            bloqueColor.style.height = "180px";
+
+            const codigoColor = document.createElement("p");
+
+            codigoColor.innerHTML = `
+                HEX: ${color}<br>
+                RGB: ${colorRgb}
+            `;
+
+            bloqueColor.appendChild(codigoColor);
+
+            contenedorPaleta.appendChild(bloqueColor);
+        }
+
+        opcionesPaleta.classList.remove("mostrar");
+
+    });
+
+});

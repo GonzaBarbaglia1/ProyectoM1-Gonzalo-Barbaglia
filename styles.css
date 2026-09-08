@@ -46,3 +46,24 @@ main {
 #opciones-paleta.mostrar {
     display: flex;
 }
+.bloque-color {
+    width: 120px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.muestra-color {
+    height: 150px;
+}
+
+.informacion-color {
+    background-color: rgb(10, 0, 0);
+    padding: 10px;
+    text-align: left;
+    font-size: 12px;
+}
+
+.informacion-color p {
+    margin: 4px 0;
+}

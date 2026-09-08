@@ -51,26 +51,27 @@ opciones.forEach(function (opcion) {
             const color = generarColor();
             const colorRgb = hexARgb(color);
 
-            const bloqueColor = document.createElement("div");
+           const bloqueColor = document.createElement("div");
+bloqueColor.classList.add("bloque-color");
 
-            bloqueColor.style.backgroundColor = color;
-            bloqueColor.style.width = "120px";
-            bloqueColor.style.height = "180px";
+const muestraColor = document.createElement("div");
+muestraColor.classList.add("muestra-color");
+muestraColor.style.backgroundColor = color;
 
-            const codigoColor = document.createElement("p");
 
-            codigoColor.innerHTML = `
-                HEX: ${color}<br>
-                RGB: ${colorRgb}
-            `;
+const informacionColor = document.createElement("div");
+informacionColor.classList.add("informacion-color");
 
-            bloqueColor.appendChild(codigoColor);
+informacionColor.innerHTML = `
+    <p>HEX: ${color}</p>
+    <p>RGB: ${colorRgb}</p>
+`;
 
-            contenedorPaleta.appendChild(bloqueColor);
+
+bloqueColor.appendChild(muestraColor);
+bloqueColor.appendChild(informacionColor);
+
+contenedorPaleta.appendChild(bloqueColor);
         }
-
-        opcionesPaleta.classList.remove("mostrar");
-
     });
-
 });

@@ -92,5 +92,5 @@ botonBloquear.addEventListener("click", function () {
     } else {
         botonBloquear.textContent = "🔓";
     }
-
+    informacionColor.appendChild(botonBloquear);
 });

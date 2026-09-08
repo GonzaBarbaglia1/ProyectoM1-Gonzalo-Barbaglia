@@ -48,10 +48,10 @@ opciones.forEach(function (opcion) {
 
         for (let i = 0; i < cantidadColores; i++) {
 
-            const color = generarColor();
-            const colorRgb = hexARgb(color);
+        const color = generarColor();
+        const colorRgb = hexARgb(color);
 
-           const bloqueColor = document.createElement("div");
+        const bloqueColor = document.createElement("div");
 bloqueColor.classList.add("bloque-color");
 
 const muestraColor = document.createElement("div");
@@ -63,8 +63,8 @@ const informacionColor = document.createElement("div");
 informacionColor.classList.add("informacion-color");
 
 informacionColor.innerHTML = `
-    <p>HEX: ${color}</p>
-    <p>RGB: ${colorRgb}</p>
+    <p class="hex">HEX: ${color}</p>
+    <p class="rgb">RGB: ${colorRgb}</p>
 `;
 
 

@@ -38,7 +38,11 @@ main {
     border: none;
     border-radius: 6px;
 }
+
 #opciones-paleta {
     display: none;
     flex-direction: column;
+}
+#opciones-paleta.mostrar {
+    display: flex;
 }

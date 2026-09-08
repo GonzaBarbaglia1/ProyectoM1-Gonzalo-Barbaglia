@@ -74,4 +74,23 @@ bloqueColor.appendChild(informacionColor);
 contenedorPaleta.appendChild(bloqueColor);
         }
     });
+}); 
+
+bloqueColor.classList.add("bloque-color");
+bloqueColor.classList.add("bloqueado");
+
+const botonBloquear = document.createElement("button");
+
+botonBloquear.textContent = "🔓";
+botonBloquear.classList.add("boton-bloquear");
+botonBloquear.addEventListener("click", function () {
+
+    bloqueColor.classList.toggle("bloqueado");
+
+    if (bloqueColor.classList.contains("bloqueado")) {
+        botonBloquear.textContent = "🔒";
+    } else {
+        botonBloquear.textContent = "🔓";
+    }
+
 });

@@ -86,4 +86,5 @@ opciones.forEach(function (opcion) {
             contenedorPaleta.appendChild(bloqueColor);
         }
     });
-});
+}); 
+

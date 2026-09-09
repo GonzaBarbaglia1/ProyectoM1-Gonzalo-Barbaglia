@@ -48,49 +48,42 @@ opciones.forEach(function (opcion) {
 
         for (let i = 0; i < cantidadColores; i++) {
 
-        const color = generarColor();
-        const colorRgb = hexARgb(color);
+            const color = generarColor();
+            const colorRgb = hexARgb(color);
 
-        const bloqueColor = document.createElement("div");
-bloqueColor.classList.add("bloque-color");
+            const bloqueColor = document.createElement("div");
+            bloqueColor.classList.add("bloque-color");
 
-const muestraColor = document.createElement("div");
-muestraColor.classList.add("muestra-color");
-muestraColor.style.backgroundColor = color;
+            const muestraColor = document.createElement("div");
+            muestraColor.classList.add("muestra-color");
+            muestraColor.style.backgroundColor = color;
 
+            const informacionColor = document.createElement("div");
+            informacionColor.classList.add("informacion-color");
 
-const informacionColor = document.createElement("div");
-informacionColor.classList.add("informacion-color");
+            informacionColor.innerHTML = `
+                <p class="hex">HEX: ${color}</p>
+                <p class="rgb">RGB: ${colorRgb}</p>
+            `;
 
-informacionColor.innerHTML = `
-    <p class="hex">HEX: ${color}</p>
-    <p class="rgb">RGB: ${colorRgb}</p>
-`;
+            const botonBloquear = document.createElement("button");
+            botonBloquear.textContent = "🔓";
+            botonBloquear.classList.add("boton-bloquear");
 
+            botonBloquear.addEventListener("click", function () {
+                bloqueColor.classList.toggle("bloqueado");
 
-bloqueColor.appendChild(muestraColor);
-bloqueColor.appendChild(informacionColor);
+                if (bloqueColor.classList.contains("bloqueado")) {
+                    botonBloquear.textContent = "🔒";
+                } else {
+                    botonBloquear.textContent = "🔓";
+                }
+            });
 
-contenedorPaleta.appendChild(bloqueColor);
+            informacionColor.appendChild(botonBloquear);
+            bloqueColor.appendChild(muestraColor);
+            bloqueColor.appendChild(informacionColor);
+            contenedorPaleta.appendChild(bloqueColor);
         }
     });
-}); 
-
-bloqueColor.classList.add("bloque-color");
-bloqueColor.classList.add("bloqueado");
-
-const botonBloquear = document.createElement("button");
-
-botonBloquear.textContent = "🔓";
-botonBloquear.classList.add("boton-bloquear");
-botonBloquear.addEventListener("click", function () {
-
-    bloqueColor.classList.toggle("bloqueado");
-
-    if (bloqueColor.classList.contains("bloqueado")) {
-        botonBloquear.textContent = "🔒";
-    } else {
-        botonBloquear.textContent = "🔓";
-    }
-    informacionColor.appendChild(botonBloquear);
 });

@@ -29,14 +29,16 @@ main {
     gap: 10px;
     margin: 30px 0;
     min-height: 180px;
+    border-color:#f8f8f8
 }
 
 #generar-paleta {
     padding: 12px 24px;
     font-size: 16px;
     cursor: pointer;
-    border: none;
+    border-color: rgb(236, 235, 235) ;
     border-radius: 6px;
+
 }
 
 #opciones-paleta {
@@ -45,6 +47,8 @@ main {
 }
 #opciones-paleta.mostrar {
     display: flex;
+    border-color: rgb(252, 249, 249)
+  
 }
 .bloque-color {
     width: 120px;

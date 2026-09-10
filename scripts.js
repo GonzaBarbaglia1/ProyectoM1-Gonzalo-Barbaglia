@@ -109,11 +109,11 @@ opciones.forEach(function (opcion) {
 
             coloresPaleta[i] = color;
 
-            const colorRgb = `(${color.r}, ${color.g}, ${color.b})`;
+            const colorRgb = `rgb(${color.r}, ${color.g}, ${color.b})`;
 
             const hsl = rgbAHsl(color.r, color.g, color.b);
 
-            const colorHsl = `(${hsl.h}, ${hsl.s}%, ${hsl.l}%)`;
+            const colorHsl = `hsl(${hsl.h}, ${hsl.s}%, ${hsl.l}%)`;
 
             const bloqueColor = document.createElement("div");
             bloqueColor.classList.add("bloque-color");
@@ -133,19 +133,25 @@ opciones.forEach(function (opcion) {
 
             const botonBloquear = document.createElement("button");
 
-            botonBloquear.textContent = "🔓";
             botonBloquear.classList.add("boton-bloquear");
 
-            botonBloquear.addEventListener("click", function () {
+             botonBloquear.textContent = color.bloqueado
+        ? "🔒"
+        : "🔓";
 
-            color.bloqueado = !color.bloqueado;
-
-            bloqueColor.classList.toggle(
+         bloqueColor.classList.toggle(
             "bloqueado",
             color.bloqueado
     );
+            botonBloquear.addEventListener("click", function () {
+            color.bloqueado = !color.bloqueado;
 
-        botonBloquear.textContent = color.bloqueado
+         bloqueColor.classList.toggle(
+        "bloqueado",
+        color.bloqueado
+    );
+
+         botonBloquear.textContent = color.bloqueado
         ? "🔒"
         : "🔓";
             });

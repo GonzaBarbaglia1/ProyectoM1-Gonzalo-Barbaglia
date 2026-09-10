@@ -86,17 +86,7 @@ opciones.forEach(function (opcion) {
             bloqueColor.appendChild(informacionColor);
             contenedorPaleta.appendChild(bloqueColor);
         }
-        document.getElementById("btnRGB").addEventListener("click", function () {
-
-    formatoSeleccionado = "rgb";
-
-});
-
-document.getElementById("btnHSL").addEventListener("click", function () {
-
-    formatoSeleccionado = "hsl";
-
-});
+        
     });
 }); 
 

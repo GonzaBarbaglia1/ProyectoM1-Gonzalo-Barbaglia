@@ -1,4 +1,5 @@
 # **MI INTERACCION CON CHAT GPT**
+---
 La interaccion con la IA fue fundamental para implementar JAVASCRIPT a este proyecto, la redaccion de HTML, Styles y Readme fueron casi automaticas, pero los problemas aparecieron cuando tuvimos que hacer funcionar los botones.
 ---
 ## **¡Primer pedido explicito!**
@@ -32,7 +33,7 @@ Habia colocado bien la funcion, o al menos lo habia intentado; el problema fue l
 
 ![Sobre escritura explicada](img/Funcion%20correcta,%20pero%20sobre%20escrita.png)
 
-## **Removemos (.remove) el boton de las opciones de la paleta clickeando nuevamente**
+### **Removemos (.remove) el boton de las opciones de la paleta clickeando nuevamente**
 
 Codeamos una nueva funcion para este click debajo de la *fuction* que habiamos añadido anteriormente para poder ver la paleta de colores, esta vez para quitarla. En primer lugar la colocamos debajo de toggle, addeventlistening no funcionaba para las dos functions juntas, asi que lo dejamos por fuera del cierre, y si funcionaba!
 

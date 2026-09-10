@@ -82,7 +82,7 @@ botonGenerar.addEventListener("click", function () {
 
 });
 
-    opcionesPaleta.classList.remove("mostrar");
+opcionesPaleta.classList.remove("mostrar");
 
 opciones.forEach(function (opcion) {
 

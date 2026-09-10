@@ -4,6 +4,7 @@ const contenedorPaleta = document.getElementById("paleta");
 const opcionesPaleta = document.getElementById("opciones-paleta");
 const opciones = document.querySelectorAll(".opcion");
 
+let formatoSeleccionado = "rgb";
 
 function generarColor() {
 

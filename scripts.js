@@ -109,11 +109,11 @@ opciones.forEach(function (opcion) {
 
             coloresPaleta[i] = color;
 
-            const colorRgb = `rgb(${color.r}, ${color.g}, ${color.b})`;
+            const colorRgb = `(${color.r}, ${color.g}, ${color.b})`;
 
             const hsl = rgbAHsl(color.r, color.g, color.b);
 
-            const colorHsl = `hsl(${hsl.h}, ${hsl.s}%, ${hsl.l}%)`;
+            const colorHsl = `(${hsl.h}, ${hsl.s}%, ${hsl.l}%)`;
 
             const bloqueColor = document.createElement("div");
             bloqueColor.classList.add("bloque-color");

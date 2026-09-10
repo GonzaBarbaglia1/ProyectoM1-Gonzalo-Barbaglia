@@ -5,9 +5,8 @@ const opcionesPaleta = document.getElementById("opciones-paleta");
 const opciones = document.querySelectorAll(".opcion");
 
 let formatoSeleccionado = "rgb";
+let coloresPaleta = []
 
-
-// Generar un color RGB aleatorio
 function generarColorRgb() {
 
     const r = Math.floor(Math.random() * 256);
@@ -21,8 +20,6 @@ function generarColorRgb() {
     };
 }
 
-
-// Convertir RGB a HSL
 function rgbAHsl(r, g, b) {
 
     r /= 255;
@@ -79,7 +76,6 @@ function rgbAHsl(r, g, b) {
 }
 
 
-// Botón Generar
 botonGenerar.addEventListener("click", function () {
 
     opcionesPaleta.classList.toggle("mostrar");
@@ -87,7 +83,6 @@ botonGenerar.addEventListener("click", function () {
 });
 
 
-// Seleccionar cantidad de colores
 opciones.forEach(function (opcion) {
 
     opcion.addEventListener("click", function () {
@@ -98,7 +93,21 @@ opciones.forEach(function (opcion) {
 
         for (let i = 0; i < cantidadColores; i++) {
 
-            const color = generarColorRgb();
+            let color;
+
+        if (coloresPaleta[i] && coloresPaleta[i].bloqueado) {
+
+             color = coloresPaleta[i];
+
+        } else {
+
+         color = {
+        ...generarColorRgb(),
+        bloqueado: false
+    };
+}
+
+            coloresPaleta[i] = color;
 
             const colorRgb = `rgb(${color.r}, ${color.g}, ${color.b})`;
 
@@ -109,15 +118,11 @@ opciones.forEach(function (opcion) {
             const bloqueColor = document.createElement("div");
             bloqueColor.classList.add("bloque-color");
 
-
-            // Muestra del color
             const muestraColor = document.createElement("div");
             muestraColor.classList.add("muestra-color");
 
             muestraColor.style.backgroundColor = colorRgb;
 
-
-            // Información del color
             const informacionColor = document.createElement("div");
             informacionColor.classList.add("informacion-color");
 
@@ -126,8 +131,6 @@ opciones.forEach(function (opcion) {
                 <p class="rgb">RGB: ${colorRgb}</p>
             `;
 
-
-            // Botón bloquear
             const botonBloquear = document.createElement("button");
 
             botonBloquear.textContent = "🔓";
@@ -135,20 +138,17 @@ opciones.forEach(function (opcion) {
 
             botonBloquear.addEventListener("click", function () {
 
-                bloqueColor.classList.toggle("bloqueado");
+            color.bloqueado = !color.bloqueado;
 
-                if (bloqueColor.classList.contains("bloqueado")) {
+            bloqueColor.classList.toggle(
+            "bloqueado",
+            color.bloqueado
+    );
 
-                    botonBloquear.textContent = "🔒";
-
-                } else {
-
-                    botonBloquear.textContent = "🔓";
-
-                }
-
+        botonBloquear.textContent = color.bloqueado
+        ? "🔒"
+        : "🔓";
             });
-
 
             informacionColor.appendChild(botonBloquear);
 
@@ -157,7 +157,5 @@ opciones.forEach(function (opcion) {
 
             contenedorPaleta.appendChild(bloqueColor);
         }
-
     });
-
 });

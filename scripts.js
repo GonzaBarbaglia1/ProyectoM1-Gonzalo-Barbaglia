@@ -82,6 +82,7 @@ botonGenerar.addEventListener("click", function () {
 
 });
 
+    opcionesPaleta.classList.remove("mostrar");
 
 opciones.forEach(function (opcion) {
 
@@ -155,6 +156,8 @@ opciones.forEach(function (opcion) {
         ? "🔒"
         : "🔓";
             });
+
+            
 
             informacionColor.appendChild(botonBloquear);
 

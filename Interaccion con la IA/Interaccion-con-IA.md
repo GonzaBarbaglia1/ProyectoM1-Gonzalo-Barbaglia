@@ -1,5 +1,33 @@
-# **INTERACCION CON LA IA**
+# **INTERACCION CON CHAT GPT**
 La interaccion con la IA fue fundamental para implementar JAVASCRIPT a este proyecto, la redaccion de HTML, Styles y Readme fueron casi automaticas, pero los problemas aparecieron cuando tuvimos que hacer funcionar los botones.
-## Primer pedido explicito
-![Pedido de ayuda para generar el bloqueo del color al cual clickeaba](img/Cambio%20funcion%20candado%201.png)
-!
+---
+## **¡Primer pedido explicito!**
+
+### **¡No funciona mi nuevo boton!**
+
+Cuando logre generar el boton, no podia hacerlo funcionar como tal, a simple viste el candado se bloqueaba pero luego la paleta de colores se recargaba por completo
+![Pedido de ayuda para generar el bloqueo del color](img/Prompts%20funcion%20candado.png)
+
+### **Copia de codigo para analisis** 
+
+Copie el codigo tal cual lo tenia, y el chat me marco cuales eran mis errores, y que tenia que modificar, explicando las lineas, como a un diveloper junior.
+
+![Codigo completo para su anilisis](img/Cambio%20funcion%20candado%201.png)
+
+### **Primera Respuesta:** 
+
+ChatGPT en primer lugar me indico que esta bien lo que venia desarrollando.
+
+![Correcion del CHATGPT](img/Cambio%20funcion%20candado,%20lo%20que%20esta%20bien.png)
+
+### **Errores detectados:** 
+
+El primer error que me marco fue un "SIMPLE" error de codigo, en la funcion de creacion de colores RGB Y HSL, por un objetivo visual, habia borrado las siglas "rgb" y "hsl" al comienzo de la funcion. Claro, al actualizar visualmente habia cambiado el nombre tal cual lo queria ver, pero cuando recargue la paleta, ya le habia sacado la facultad de crear los colores pedidos. Esto pasa cuando priorizamos lo visual, a lo funcional.
+
+![Errores](img/Error%20de%20sobre%20escritura.png)
+
+### **Error Explicado**
+
+Habia colocado bien la funcion, o al menos lo habia intentado; el problema fue la sobre escritura de la funcion, primero le dije mediante una funcion: bloqueame el color para que cuando genere una nueva paleta, este mismo no cambie, y luego la sobre escrifica con otra funcion que volvia a abrir el candado.
+
+![Sobre escritura explicada](img/Funcion%20correcta,%20pero%20sobre%20escrita.png)

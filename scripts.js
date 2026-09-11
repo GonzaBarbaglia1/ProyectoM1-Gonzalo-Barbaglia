@@ -127,9 +127,9 @@ opciones.forEach(function (opcion) {
             const informacionColor = document.createElement("div");
             informacionColor.classList.add("informacion-color");
 
-            informacionColor.innerHTML = `
-                <p class="hsl">HSL: ${colorHsl}</p>
-                <p class="rgb">RGB: ${colorRgb}</p>
+     informacionColor.innerHTML = `
+        <p class="hsl">HSL: ${colorHsl}</p>
+        <p class="rgb">RGB: ${colorRgb}</p>
             `;
 
             const textoRgb = informacionColor.querySelector(".rgb");
@@ -137,11 +137,24 @@ opciones.forEach(function (opcion) {
 
             textoRgb.addEventListener("click", function () {
                 navigator.clipboard.writeText(colorRgb);
-             });
+             
+
+             textoRgb.textContent = "¡Codigo Copiado!"
+
+            setTimeout(function () {
+        textoRgb.textContent = `RGB: ${colorRgb}`;
+    }, 900)
+});
 
              textoHsl.addEventListener("click", function () {
                navigator.clipboard.writeText(colorHsl);
-             });
+            
+    textoHsl.textContent = "¡Codigo Copiado!";
+
+    setTimeout(function () {
+        textoHsl.textContent = `HSL: ${colorHsl}`;
+    }, 900) 
+});
 
             const botonBloquear = document.createElement("button");
             botonBloquear.classList.add("boton-bloquear");

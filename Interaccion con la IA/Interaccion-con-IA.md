@@ -57,3 +57,5 @@ Luego de encontrar un error de Id, logramos que funcionen, transcribimos el codi
 
 ![Botones Funcionando](img/botones%20ya%20funcionando.png)
 
+## **Agrega la funcion de copiar color al porta papeles**
+

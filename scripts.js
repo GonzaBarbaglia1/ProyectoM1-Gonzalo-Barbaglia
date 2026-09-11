@@ -132,6 +132,17 @@ opciones.forEach(function (opcion) {
                 <p class="rgb">RGB: ${colorRgb}</p>
             `;
 
+            const textoRgb = informacionColor.querySelector(".rgb");
+            const textoHsl = informacionColor.querySelector(".hsl");
+
+            textoRgb.addEventListener("click", function () {
+                navigator.clipboard.writeText(colorRgb);
+             });
+
+             textoHsl.addEventListener("click", function () {
+               navigator.clipboard.writeText(colorHsl);
+             });
+
             const botonBloquear = document.createElement("button");
             botonBloquear.classList.add("boton-bloquear");
             botonBloquear.textContent = color.bloqueado ? "🔒" : "🔓";

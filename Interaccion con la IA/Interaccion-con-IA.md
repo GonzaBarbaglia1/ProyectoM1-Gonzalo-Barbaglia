@@ -7,6 +7,7 @@ La interaccion con la IA fue fundamental para implementar JAVASCRIPT a este proy
 ### **¡No funciona mi nuevo boton!**
 
 Cuando logre generar el boton, no podia hacerlo funcionar como tal, a simple viste el candado se bloqueaba pero luego la paleta de colores se recargaba por completo
+
 ![Pedido de ayuda para generar el bloqueo del color](img/Prompts%20funcion%20candado.png)
 
 ### **Copia de codigo para analisis** 
@@ -49,6 +50,7 @@ Pedimos ayuda para poder hacer funcionar botones ya generados.
 ## **Funcion para botones y coneccion de los botones a la funcion***
 
 ![Funcion](img/Le%20damos%20funcion%20a%20los%20botones.png)
+
 ![Conexion](img/Conectamos%20los%20botnes%20a%20la%20funcion.png)
 
 ## **Los Botones Funcionan**

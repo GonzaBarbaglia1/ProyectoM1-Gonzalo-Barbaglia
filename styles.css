@@ -72,7 +72,6 @@ main {
     margin: 4px 0;
 }
 
-.rgb,
-.hsl {
+.rgb,.hsl {
     cursor: pointer;
 }

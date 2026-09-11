@@ -71,3 +71,8 @@ main {
 .informacion-color p {
     margin: 4px 0;
 }
+
+.rgb,
+.hsl {
+    cursor: pointer;
+}

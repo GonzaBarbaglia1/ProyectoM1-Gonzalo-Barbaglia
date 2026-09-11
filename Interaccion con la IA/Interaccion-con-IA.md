@@ -59,3 +59,10 @@ Luego de encontrar un error de Id, logramos que funcionen, transcribimos el codi
 
 ## **Agrega la funcion de copiar color al porta papeles**
 
+Redactamos un prompt explicito:
+
+![Funcion copiar color](img/PROMPT%20FUNCION%20COPIAR.png)
+
+Chat nos devolvio el codigo y la explicacion para su entendimiento:
+
+![CodigoParaFuncionCopiarColor](img/Codigo%20y%20explicacion.png)

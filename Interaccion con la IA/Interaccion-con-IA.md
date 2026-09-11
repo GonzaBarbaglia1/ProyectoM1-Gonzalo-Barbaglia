@@ -37,5 +37,23 @@ Habia colocado bien la funcion, o al menos lo habia intentado; el problema fue l
 
 Codeamos una nueva funcion para este click debajo de la *fuction* que habiamos añadido anteriormente para poder ver la paleta de colores, esta vez para quitarla. En primer lugar la colocamos debajo de toggle, addeventlistening no funcionaba para las dos functions juntas, asi que lo dejamos por fuera del cierre, y si funcionaba!
 
-
 ![Click.remove](img/Funcion%20correcta,%20pero%20sobre%20escrita.png)
+
+## **Prompts para hacer funcionar botones**
+
+Pedimos ayuda para poder hacer funcionar botones ya generados.
+
+![HSLRGB Botones](img/PromptparaHSLRGB.png)
+![Ya generados](img/Promptya%20estaban%20generados.png)
+
+## **Funcion para botones y coneccion de los botones a la funcion***
+
+![Funcion](img/Le%20damos%20funcion%20a%20los%20botones.png)
+![Conexion](img/Conectamos%20los%20botnes%20a%20la%20funcion.png)
+
+## **Los Botones Funcionan**
+
+Luego de encontrar un error de Id, logramos que funcionen, transcribimos el codigo del chat, pero los botone sya estaban creados con anterioridad, por lo que el supuso que estaban creados y les dio un nombre genererico, que era parecido pero no igual; modificamos el *getElementByID* y logramos que funcionen.
+
+![Botones Funcionando](img/botones%20ya%20funcionando.png)
+

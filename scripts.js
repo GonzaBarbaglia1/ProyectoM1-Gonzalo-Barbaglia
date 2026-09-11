@@ -4,6 +4,9 @@ const contenedorPaleta = document.getElementById("paleta");
 const opcionesPaleta = document.getElementById("opciones-paleta");
 const opciones = document.querySelectorAll(".opcion");
 
+const botonRgb = document.getElementById("btnRGB");
+const botonHsl = document.getElementById("btnHSL");
+
 let formatoSeleccionado = "rgb";
 let coloresPaleta = []
 
@@ -96,17 +99,14 @@ opciones.forEach(function (opcion) {
 
             let color;
 
-        if (coloresPaleta[i] && coloresPaleta[i].bloqueado) {
-
-             color = coloresPaleta[i];
-
-        } else {
-
-         color = {
-        ...generarColorRgb(),
-        bloqueado: false
-    };
-}
+            if (coloresPaleta[i] && coloresPaleta[i].bloqueado) {
+                color = coloresPaleta[i];
+            } else {
+                color = {
+                    ...generarColorRgb(),
+                    bloqueado: false
+                };
+            }
 
             coloresPaleta[i] = color;
 
@@ -133,31 +133,17 @@ opciones.forEach(function (opcion) {
             `;
 
             const botonBloquear = document.createElement("button");
-
             botonBloquear.classList.add("boton-bloquear");
+            botonBloquear.textContent = color.bloqueado ? "🔒" : "🔓";
 
-             botonBloquear.textContent = color.bloqueado
-        ? "🔒"
-        : "🔓";
+            bloqueColor.classList.toggle("bloqueado", color.bloqueado);
 
-         bloqueColor.classList.toggle(
-            "bloqueado",
-            color.bloqueado
-    );
             botonBloquear.addEventListener("click", function () {
-            color.bloqueado = !color.bloqueado;
+                color.bloqueado = !color.bloqueado;
 
-         bloqueColor.classList.toggle(
-        "bloqueado",
-        color.bloqueado
-    );
-
-         botonBloquear.textContent = color.bloqueado
-        ? "🔒"
-        : "🔓";
+                bloqueColor.classList.toggle("bloqueado", color.bloqueado);
+                botonBloquear.textContent = color.bloqueado ? "🔒" : "🔓";
             });
-
-            
 
             informacionColor.appendChild(botonBloquear);
 
@@ -166,5 +152,48 @@ opciones.forEach(function (opcion) {
 
             contenedorPaleta.appendChild(bloqueColor);
         }
+
+        actualizarFormato();
+        opcionesPaleta.classList.remove("mostrar");
     });
+});
+
+function actualizarFormato() {
+
+    const textosRgb = document.querySelectorAll(".rgb");
+    const textosHsl = document.querySelectorAll(".hsl");
+
+    if (formatoSeleccionado === "rgb") {
+
+        textosRgb.forEach(function (texto) {
+            texto.style.display = "block";
+        });
+
+        textosHsl.forEach(function (texto) {
+            texto.style.display = "none";
+        });
+
+    } else {
+
+        textosRgb.forEach(function (texto) {
+            texto.style.display = "none";
+        });
+
+        textosHsl.forEach(function (texto) {
+            texto.style.display = "block";
+        });
+    }
+}
+
+botonRgb.addEventListener("click", function () {
+
+    formatoSeleccionado = "rgb";
+    actualizarFormato();
+
+});
+botonHsl.addEventListener("click", function () {
+
+    formatoSeleccionado = "hsl";
+    actualizarFormato();
+
 });

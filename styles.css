@@ -78,8 +78,14 @@ main {
 
 .selector-formato {
     font-size: 30px; 
+    cursor: pointer;
 }
 
 .opcion {
     width: 150px;
+    cursor: pointer;
+}
+
+#btnHSL, #btnRGB {
+    cursor: pointer;
 }

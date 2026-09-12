@@ -45,6 +45,7 @@ Codeamos una nueva funcion para este click debajo de la *fuction* que habiamos a
 Pedimos ayuda para poder hacer funcionar botones ya generados.
 
 ![HSLRGB Botones](img/PromptparaHSLRGB.png)
+
 ![Ya generados](img/Promptya%20estaban%20generados.png)
 
 ## **Funcion para botones y coneccion de los botones a la funcion***

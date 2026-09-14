@@ -1,5 +1,6 @@
 const botonGenerar = document.getElementById("generar-paleta");
 const contenedorPaleta = document.getElementById("paleta");
+const botonCantidad = document.getElementById("boton-cantidad");
 
 const opcionesPaleta = document.getElementById("opciones-paleta");
 const opciones = document.querySelectorAll(".opcion");
@@ -8,7 +9,8 @@ const botonRgb = document.getElementById("btnRGB");
 const botonHsl = document.getElementById("btnHSL");
 
 let formatoSeleccionado = "rgb";
-let coloresPaleta = []
+let coloresPaleta = [];
+let cantidadSeleccionada = 6;
 
 function generarColorRgb() {
 
@@ -78,111 +80,146 @@ function rgbAHsl(r, g, b) {
     };
 }
 
+botonCantidad.addEventListener("click", function () {
+
+    opcionesPaleta.classList.toggle("mostrar");
+});
+
+    opciones.forEach(function (opcion) {
+
+        opcion.addEventListener("click", function () {
+
+            cantidadSeleccionada = Number(opcion.dataset.cantidad);
+
+            botonCantidad.textContent =
+                `Cantidad: ${cantidadSeleccionada} colores`;
+
+            opcionesPaleta.classList.remove("mostrar");
+        });
+    });
 
 botonGenerar.addEventListener("click", function () {
 
-    opcionesPaleta.classList.toggle("mostrar");
+    contenedorPaleta.innerHTML = "";
 
-});
+    for (let i = 0; i < cantidadSeleccionada; i++) {
 
-opcionesPaleta.classList.remove("mostrar");
+        let color;
 
-opciones.forEach(function (opcion) {
+        if (coloresPaleta[i] && coloresPaleta[i].bloqueado) {
 
-    opcion.addEventListener("click", function () {
+            color = coloresPaleta[i];
 
-        const cantidadColores = Number(opcion.dataset.cantidad);
+        } else {
 
-        contenedorPaleta.innerHTML = "";
-
-        for (let i = 0; i < cantidadColores; i++) {
-
-            let color;
-
-            if (coloresPaleta[i] && coloresPaleta[i].bloqueado) {
-                color = coloresPaleta[i];
-            } else {
-                color = {
-                    ...generarColorRgb(),
-                    bloqueado: false
-                };
-            }
-
-            coloresPaleta[i] = color;
-
-            const colorRgb = `rgb(${color.r}, ${color.g}, ${color.b})`;
-
-            const hsl = rgbAHsl(color.r, color.g, color.b);
-
-            const colorHsl = `hsl(${hsl.h}, ${hsl.s}%, ${hsl.l}%)`;
-
-            const bloqueColor = document.createElement("div");
-            bloqueColor.classList.add("bloque-color");
-
-            const muestraColor = document.createElement("div");
-            muestraColor.classList.add("muestra-color");
-
-            muestraColor.style.backgroundColor = colorRgb;
-
-            const informacionColor = document.createElement("div");
-            informacionColor.classList.add("informacion-color");
-
-     informacionColor.innerHTML = `
-        <p class="hsl">HSL: ${colorHsl}</p>
-        <p class="rgb">RGB: ${colorRgb}</p>
-            `;
-
-            const textoRgb = informacionColor.querySelector(".rgb");
-            const textoHsl = informacionColor.querySelector(".hsl");
-
-            textoRgb.addEventListener("click", function () {
-                navigator.clipboard.writeText(colorRgb);
-             
-
-             textoRgb.textContent = "¡Codigo Copiado!"
-
-            setTimeout(function () {
-        textoRgb.textContent = `RGB: ${colorRgb}`;
-    }, 900)
-});
-
-             textoHsl.addEventListener("click", function () {
-               navigator.clipboard.writeText(colorHsl);
-            
-    textoHsl.textContent = "¡Codigo Copiado!";
-
-    setTimeout(function () {
-        textoHsl.textContent = `HSL: ${colorHsl}`;
-    }, 900) 
-});
-
-            const botonBloquear = document.createElement("button");
-            botonBloquear.classList.add("boton-bloquear");
-            botonBloquear.textContent = color.bloqueado ? "🔒" : "🔓";
-
-            bloqueColor.classList.toggle("bloqueado", color.bloqueado);
-
-            botonBloquear.addEventListener("click", function () {
-                color.bloqueado = !color.bloqueado;
-
-                bloqueColor.classList.toggle("bloqueado", color.bloqueado);
-                botonBloquear.textContent = color.bloqueado ? "🔒" : "🔓";
-            });
-
-            informacionColor.appendChild(botonBloquear);
-
-            bloqueColor.appendChild(muestraColor);
-            bloqueColor.appendChild(informacionColor);
-
-            contenedorPaleta.appendChild(bloqueColor);
+            color = {
+                ...generarColorRgb(),
+                bloqueado: false
+            };
         }
 
-        actualizarFormato();
-        opcionesPaleta.classList.remove("mostrar");
-    });
+        coloresPaleta[i] = color;
+
+        const colorRgb =
+            `rgb(${color.r}, ${color.g}, ${color.b})`;
+
+        const hsl =
+            rgbAHsl(color.r, color.g, color.b);
+
+        const colorHsl =
+            `hsl(${hsl.h}, ${hsl.s}%, ${hsl.l}%)`;
+
+        const bloqueColor =
+            document.createElement("div");
+
+        bloqueColor.classList.add("bloque-color");
+
+        const muestraColor =
+            document.createElement("div");
+
+        muestraColor.classList.add("muestra-color");
+
+        muestraColor.style.backgroundColor = colorRgb;
+
+        const informacionColor =
+            document.createElement("div");
+
+        informacionColor.classList.add("informacion-color");
+
+        informacionColor.innerHTML = `
+            <p class="hsl">HSL: ${colorHsl}</p>
+            <p class="rgb">RGB: ${colorRgb}</p>
+        `;
+
+        const textoRgb =
+            informacionColor.querySelector(".rgb");
+
+        const textoHsl =
+            informacionColor.querySelector(".hsl");
+
+        textoRgb.addEventListener("click", function () {
+
+            navigator.clipboard.writeText(colorRgb);
+
+            textoRgb.textContent = "¡Codigo Copiado!";
+
+            setTimeout(function () {
+
+                textoRgb.textContent =
+                    `RGB: ${colorRgb}`;
+
+            }, 900);
+
+        });
+
+        textoHsl.addEventListener("click", function () {
+
+            navigator.clipboard.writeText(colorHsl);
+            textoHsl.textContent = "¡Codigo Copiado!";
+
+            setTimeout(function () {
+
+                textoHsl.textContent =
+                    `HSL: ${colorHsl}`;
+
+            }, 900);
+        });
+
+        const botonBloquear =
+            document.createElement("button");
+
+        botonBloquear.classList.add("boton-bloquear");
+
+        botonBloquear.textContent =
+            color.bloqueado ? "🔒" : "🔓";
+
+        bloqueColor.classList.toggle(
+            "bloqueado",
+            color.bloqueado
+        );
+
+        botonBloquear.addEventListener("click", function () {
+
+            color.bloqueado = !color.bloqueado;
+
+            bloqueColor.classList.toggle(
+                "bloqueado",
+                color.bloqueado
+            );
+            botonBloquear.textContent =
+                color.bloqueado ? "🔒" : "🔓";
+
+        });
+
+        informacionColor.appendChild(botonBloquear);
+        bloqueColor.appendChild(muestraColor);
+        bloqueColor.appendChild(informacionColor);
+        contenedorPaleta.appendChild(bloqueColor);
+    }
+    actualizarFormato();
 });
 
-function actualizarFormato() {
+function actualizarFormato(){
 
     const textosRgb = document.querySelectorAll(".rgb");
     const textosHsl = document.querySelectorAll(".hsl");
@@ -210,14 +247,10 @@ function actualizarFormato() {
 }
 
 botonRgb.addEventListener("click", function () {
-
     formatoSeleccionado = "rgb";
     actualizarFormato();
-
 });
 botonHsl.addEventListener("click", function () {
-
     formatoSeleccionado = "hsl";
     actualizarFormato();
-
 });

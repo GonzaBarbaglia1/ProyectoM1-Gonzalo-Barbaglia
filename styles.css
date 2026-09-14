@@ -13,7 +13,6 @@ header {
 h1 {
     margin-bottom: 10px;
     background-color: rgb(2, 2, 0);
-    ;
 }
 
 main {
@@ -31,13 +30,12 @@ main {
     border-color:#f8f8f8
 }
 
-#generar-paleta {
+#generar-paleta, #boton-cantidad {
     padding: 12px 24px;
     font-size: 16px;
     cursor: pointer;
     border-color: rgb(236, 235, 235) ;
     border-radius: 6px;
-
 }
 
 #opciones-paleta {
@@ -45,13 +43,14 @@ main {
     align-items: center;
     flex-direction: column;
 }
+
 #opciones-paleta.mostrar {
     display: flex;
     border-color: rgb(252, 249, 249)
-  
 }
+
 .bloque-color {
-    width: 120px;
+    width: 100px;
     border: 1px solid #ddd;
     border-radius: 8px;
     overflow: hidden;
@@ -72,9 +71,7 @@ main {
     margin: 4px 0;
 }
 
-.rgb,.hsl {
-    cursor: pointer;
-}
+.rgb,.hsl {cursor: pointer;}
 
 .selector-formato {
     font-size: 30px; 
@@ -88,4 +85,59 @@ main {
 
 #btnHSL, #btnRGB {
     cursor: pointer;
+}
+
+@media (max-width: 600px) {
+
+    main {
+        width: 95%;
+    }
+
+    #paleta {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        justify-items: center;
+    }
+
+    .bloque-color {
+        width: 100%;
+        max-width: 140px;
+    }
+
+    .muestra-color {
+        height: 120px;
+    }
+
+    .informacion-color {
+        font-size: 11px;
+        padding: 8px;
+    }
+
+    #generar-paleta {
+        width: 100%;
+        max-width: 280px;
+    }
+
+    .opcion {
+        width: 100%;
+        max-width: 280px;
+    }
+
+    .selector-formato {
+        font-size: 18px;
+    }
+
+    #btnHSL, #btnRGB {
+        padding: 8px 14px;
+        font-size: 14px;
+    }
+
+    header {
+        padding: 20px 10px;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
 }

@@ -261,9 +261,9 @@ botonGuardar.addEventListener("click", function () {
     
     }
     navigator.clipboard.writeText(copiarPaleta);
-    botonGuardar.textContent = "¡Paleta Guardada!";
+    botonGuardar.textContent = "¡Paleta Copiada!";
 
       setTimeout(function () {
-    botonGuardar.textContent = "Guardar Paleta";
+    botonGuardar.textContent = "Copiar Paleta";
 }, 2000);
 });

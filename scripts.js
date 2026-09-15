@@ -264,6 +264,6 @@ botonGuardar.addEventListener("click", function () {
     botonGuardar.textContent = "¡Paleta Guardada!";
 
       setTimeout(function () {
-    botonGuardar.textContent = "Guardar paleta";
-}, 900);
+    botonGuardar.textContent = "Guardar Paleta";
+}, 2000);
 });

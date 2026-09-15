@@ -30,9 +30,9 @@ main {
     border-color:#f8f8f8
 }
 
-#generar-paleta, #boton-cantidad {
+#generar-paleta, #boton-cantidad, #guardar-paleta {
     padding: 12px 24px;
-    font-size: 16px;
+    font-size: 12px;
     cursor: pointer;
     border-color: rgb(236, 235, 235) ;
     border-radius: 6px;

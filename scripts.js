@@ -1,7 +1,7 @@
 const botonGenerar = document.getElementById("generar-paleta");
 const contenedorPaleta = document.getElementById("paleta");
 const botonCantidad = document.getElementById("boton-cantidad");
-
+const botonGuardar = document.getElementById("guardar-paleta");
 const opcionesPaleta = document.getElementById("opciones-paleta");
 const opciones = document.querySelectorAll(".opcion");
 
@@ -153,23 +153,17 @@ botonGenerar.addEventListener("click", function () {
 
         const textoRgb =
             informacionColor.querySelector(".rgb");
-
         const textoHsl =
             informacionColor.querySelector(".hsl");
 
         textoRgb.addEventListener("click", function () {
 
             navigator.clipboard.writeText(colorRgb);
-
             textoRgb.textContent = "¡Codigo Copiado!";
 
             setTimeout(function () {
-
                 textoRgb.textContent =
-                    `RGB: ${colorRgb}`;
-
-            }, 900);
-
+                    `RGB: ${colorRgb}`;}, 900);
         });
 
         textoHsl.addEventListener("click", function () {
@@ -253,4 +247,23 @@ botonRgb.addEventListener("click", function () {
 botonHsl.addEventListener("click", function () {
     formatoSeleccionado = "hsl";
     actualizarFormato();
+});
+
+botonGuardar.addEventListener("click", function () {
+
+    let copiarPaleta = "";
+
+    for (let i = 0; i < cantidadSeleccionada; i++) {
+
+        const color = coloresPaleta[i];
+
+        copiarPaleta += `rgb(${color.r}, ${color.g}, ${color.b})\n`;
+    
+    }
+    navigator.clipboard.writeText(copiarPaleta);
+    botonGuardar.textContent = "¡Paleta Guardada!";
+
+      setTimeout(function () {
+    botonGuardar.textContent = "Guardar paleta";
+}, 900);
 });
